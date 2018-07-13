@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.CollectionsManageme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.CollectionsManagement.Data", "ESFA.DC.CollectionsManagement.Data\ESFA.DC.CollectionsManagement.Data.csproj", "{AE77740C-116C-451B-AC20-882BC97B9D84}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ESFA.DC.CollectionsManagement.Database", "ESFA.DC.CollectionsManagement.Database\ESFA.DC.CollectionsManagement.Database.sqlproj", "{DAC41885-8BA5-4619-95CA-2CF377625E88}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.CollectionsManagement.Services", "ESFA.DC.CollectionsManagement.Service\ESFA.DC.CollectionsManagement.Services.csproj", "{397B958B-1A1D-45EE-8EDA-C1FEA698DEF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.CollectionsManagement.Interfaces", "ESFA.DC.CollectionsManagement.Interfaces\ESFA.DC.CollectionsManagement.Interfaces.csproj", "{963D1AC1-165F-4C04-8695-3AC670FE3A44}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ESFA.DC.CollectionsManagement.Database", "ESFA.DC.CollectionsManagement.Database\ESFA.DC.CollectionsManagement.Database.sqlproj", "{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,12 +27,6 @@ Global
 		{AE77740C-116C-451B-AC20-882BC97B9D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE77740C-116C-451B-AC20-882BC97B9D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE77740C-116C-451B-AC20-882BC97B9D84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAC41885-8BA5-4619-95CA-2CF377625E88}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{397B958B-1A1D-45EE-8EDA-C1FEA698DEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{397B958B-1A1D-45EE-8EDA-C1FEA698DEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{397B958B-1A1D-45EE-8EDA-C1FEA698DEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +35,12 @@ Global
 		{963D1AC1-165F-4C04-8695-3AC670FE3A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{963D1AC1-165F-4C04-8695-3AC670FE3A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{963D1AC1-165F-4C04-8695-3AC670FE3A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5066C6A-A745-48D3-8F0A-5BCF42E15C18}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
