@@ -10,23 +10,25 @@ namespace ESFA.DC.CollectionsManagement.Data
         {
         }
 
-        public CollectionsManagementContext(DbContextOptions<CollectionsManagementContext> options)
+        public CollectionsManagementContext(DbContextOptions options)
             : base(options)
         {
         }
+
+        public virtual DbSet<Collection> Collection { get; set; }
 
         public virtual DbSet<Collection> Collections { get; set; }
         public virtual DbSet<CollectionType> CollectionTypes { get; set; }
         public virtual DbSet<Organisation> Organisations { get; set; }
         public virtual DbSet<OrganisationCollection> OrganisationCollections { get; set; }
         public virtual DbSet<ReturnPeriod> ReturnPeriods { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Collection>(entity =>
             {
                 entity.Property(e => e.CollectionId).ValueGeneratedNever();
-
+                entity.ToTable("Collection");
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -36,7 +38,7 @@ namespace ESFA.DC.CollectionsManagement.Data
             modelBuilder.Entity<CollectionType>(entity =>
             {
                 entity.Property(e => e.CollectionTypeId).ValueGeneratedNever();
-
+                entity.ToTable("CollectionType");
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(250)
@@ -51,7 +53,7 @@ namespace ESFA.DC.CollectionsManagement.Data
             modelBuilder.Entity<Organisation>(entity =>
             {
                 entity.Property(e => e.OrganisationId).ValueGeneratedNever();
-
+                entity.ToTable("Organisation");
                 entity.Property(e => e.Email)
                     .HasMaxLength(250)
                     .IsUnicode(false);
@@ -70,7 +72,7 @@ namespace ESFA.DC.CollectionsManagement.Data
             modelBuilder.Entity<OrganisationCollection>(entity =>
             {
                 entity.HasKey(e => new { e.OrganisationId, e.CollectionId });
-
+                entity.ToTable("OrganisationCollection");
                 entity.HasOne(d => d.Collection)
                     .WithMany(p => p.OrganisationCollection)
                     .HasForeignKey(d => d.CollectionId)
@@ -87,6 +89,7 @@ namespace ESFA.DC.CollectionsManagement.Data
             modelBuilder.Entity<ReturnPeriod>(entity =>
             {
                 entity.Property(e => e.ReturnPeriodId).ValueGeneratedNever();
+                entity.ToTable("ReturnPeriod");
 
                 entity.Property(e => e.EndDateTimeUtc)
                     .HasColumnName("EndDateTimeUTC")

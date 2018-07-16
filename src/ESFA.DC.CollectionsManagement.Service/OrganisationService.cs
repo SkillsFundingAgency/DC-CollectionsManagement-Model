@@ -5,6 +5,7 @@ using System.Linq;
 using ESFA.DC.CollectionsManagement.Data;
 using ESFA.DC.CollectionsManagement.Interfaces;
 using ESFA.DC.CollectionsManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESFA.DC.CollectionsManagement.Services
 {
@@ -12,9 +13,9 @@ namespace ESFA.DC.CollectionsManagement.Services
     {
         private readonly CollectionsManagementContext _collectionsManagementContext;
 
-        public OrganisationService(CollectionsManagementContext collectionsManagementContext)
+        public OrganisationService(DbContextOptions dbContextOptions)
         {
-            _collectionsManagementContext = collectionsManagementContext;
+            _collectionsManagementContext = new CollectionsManagementContext(dbContextOptions); 
         }
         public IEnumerable<CollectionType> GetAvailableCollectionTypes(long ukprn)
         {

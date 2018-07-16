@@ -5,6 +5,7 @@ using ESFA.DC.CollectionsManagement.Data;
 using ESFA.DC.CollectionsManagement.Interfaces;
 using ESFA.DC.CollectionsManagement.Models;
 using ESFA.DC.DateTime.Provider.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESFA.DC.CollectionsManagement.Services
 {
@@ -13,9 +14,9 @@ namespace ESFA.DC.CollectionsManagement.Services
         private readonly CollectionsManagementContext _collectionsManagementContext;
         private readonly IDateTimeProvider _dateTimeProvider;
 
-        public RetrunCalendarService(CollectionsManagementContext collectionsManagementContext, IDateTimeProvider dateTimeProvider)
+        public RetrunCalendarService(DbContextOptions dbContextOptions, IDateTimeProvider dateTimeProvider)
         {
-            _collectionsManagementContext = collectionsManagementContext;
+            _collectionsManagementContext = new CollectionsManagementContext(dbContextOptions);
             _dateTimeProvider = dateTimeProvider;
         }
         public ReturnPeriod GetCurrentPeriod(string collectionName)
@@ -23,7 +24,7 @@ namespace ESFA.DC.CollectionsManagement.Services
             var currentDateTime = _dateTimeProvider.GetNowUtc();
             var periods = _collectionsManagementContext.ReturnPeriods.Where(x =>
                     x.Collection.Name == collectionName &&
-                    x.StartDateTimeUtc >= currentDateTime
+                    currentDateTime >= x.StartDateTimeUtc
                     && currentDateTime <= x.EndDateTimeUtc)
                 .Select(x => new ReturnPeriod()
                 {
