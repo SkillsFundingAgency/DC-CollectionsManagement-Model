@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESFA.DC.CollectionsManagement.Services
 {
-    public class OrganisationService : IOrganisationService
+    public class OrganisationService : IOrganisationService, IDisposable
     {
         private readonly CollectionsManagementContext _collectionsManagementContext;
 
@@ -50,6 +50,11 @@ namespace ESFA.DC.CollectionsManagement.Services
         public Organisation GetByUkprn(long ukprn)
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            _collectionsManagementContext.Dispose();
         }
     }
 }

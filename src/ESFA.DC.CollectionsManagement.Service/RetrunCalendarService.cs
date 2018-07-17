@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESFA.DC.CollectionsManagement.Services
 {
-    public class RetrunCalendarService : IRetrunCalendarService
+    public class RetrunCalendarService : IRetrunCalendarService, IDisposable
     {
         private readonly CollectionsManagementContext _collectionsManagementContext;
         private readonly IDateTimeProvider _dateTimeProvider;
@@ -19,6 +19,8 @@ namespace ESFA.DC.CollectionsManagement.Services
             _collectionsManagementContext = new CollectionsManagementContext(dbContextOptions);
             _dateTimeProvider = dateTimeProvider;
         }
+
+      
         public ReturnPeriod GetCurrentPeriod(string collectionName)
         {
             var currentDateTime = _dateTimeProvider.GetNowUtc();
@@ -37,5 +39,11 @@ namespace ESFA.DC.CollectionsManagement.Services
                 });
             return periods.SingleOrDefault();
         }
+
+        public void Dispose()
+        {
+            _collectionsManagementContext.Dispose();
+        }
+
     }
 }
