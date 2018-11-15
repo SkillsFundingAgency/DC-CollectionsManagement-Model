@@ -5,6 +5,7 @@
         public string CollectionTitle { get; set; }
         public bool IsOpen { get; set; }
         public string CollectionType { get; set; }
+        public int CollectionYear { get; set; }
     }
 }
  
